@@ -8,12 +8,12 @@ resource "aws_instance" "this" {
   instance_type               = var.instance_type
   subnet_id                   = local.private_subnet_ids[0]
   vpc_security_group_ids      = [aws_security_group.this.id]
-  tags                        = local.tags
   associate_public_ip_address = false
   iam_instance_profile        = aws_iam_instance_profile.this.name
   disable_api_termination     = false
   monitoring                  = false
   user_data                   = local.user-data
+  tags                        = merge(local.tags, { Name = local.resource_name })
 
   metadata_options {
     http_endpoint               = "enabled"

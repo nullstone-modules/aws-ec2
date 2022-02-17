@@ -14,9 +14,9 @@ resource "aws_iam_user_policy" "adminer" {
 
 data "aws_iam_policy_document" "adminer" {
   statement {
-    sid       = "AllowSSMSession"
-    effect    = "Allow"
-    actions   = ["ssm:StartSession"]
+    sid     = "AllowSSMSession"
+    effect  = "Allow"
+    actions = ["ssm:StartSession"]
 
     resources = [
       aws_instance.this.arn,

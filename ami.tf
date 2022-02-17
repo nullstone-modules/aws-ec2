@@ -8,7 +8,7 @@ data "aws_ami" "this" {
   }
 
   filter {
-    name = "name"
+    name   = "name"
     values = ["amzn2-ami-hvm*"]
   }
 }
