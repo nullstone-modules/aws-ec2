@@ -4,6 +4,7 @@ Example repo that serves as an example of an app/server Nullstone module that al
 
 This creates the following:
 - EC2 Instance
-  - public access disabled
+  - inbound public access disabled
+  - outbound access disabled
 - IAM Instance Profile attached to EC2 Instance with SSM support allowed
 - `adminer` IAM User that allows SSM session privilege on the EC2 instance
