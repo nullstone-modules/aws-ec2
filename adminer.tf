@@ -12,10 +12,6 @@ resource "aws_iam_user_policy" "adminer" {
   policy = data.aws_iam_policy_document.adminer.json
 }
 
-data "aws_ssm_document" "ssh" {
-  name = "AWS-StartSSHSession"
-}
-
 data "aws_iam_policy_document" "adminer" {
   statement {
     sid       = "AllowSSMSession"
@@ -24,7 +20,7 @@ data "aws_iam_policy_document" "adminer" {
 
     resources = [
       aws_instance.this.arn,
-      data.aws_ssm_document.ssh.arn,
+      "arn:aws:ssm:us-east-1::document/AWS-StartSSHSession",
     ]
   }
 }
