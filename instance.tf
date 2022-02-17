@@ -13,6 +13,7 @@ resource "aws_instance" "this" {
   iam_instance_profile        = aws_iam_instance_profile.this.name
   disable_api_termination     = false
   monitoring                  = false
+  user_data                   = local.user-data
 
   metadata_options {
     http_endpoint               = "enabled"
