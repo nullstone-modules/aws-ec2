@@ -1,5 +1,5 @@
 resource "aws_iam_user" "adminer" {
-  name = "deployer-${local.resource_name}"
+  name = "adminer-${local.resource_name}"
   tags = local.tags
 }
 
@@ -12,11 +12,19 @@ resource "aws_iam_user_policy" "adminer" {
   policy = data.aws_iam_policy_document.adminer.json
 }
 
+data "aws_ssm_document" "ssh" {
+  name = "AWS-StartSSHSession"
+}
+
 data "aws_iam_policy_document" "adminer" {
   statement {
     sid       = "AllowSSMSession"
     effect    = "Allow"
     actions   = ["ssm:StartSession"]
-    resources = [aws_instance.this.arn]
+
+    resources = [
+      aws_instance.this.arn,
+      data.aws_ssm_document.ssh.arn,
+    ]
   }
 }
