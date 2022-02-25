@@ -14,5 +14,5 @@ data "aws_ami" "this" {
 }
 
 locals {
-  ami = data.aws_ami.this.id
+  ami = var.ami == "" ? data.aws_ami.this.id : var.ami
 }

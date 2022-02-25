@@ -1,10 +1,28 @@
-# aws-ec2-ssm-example
+# aws-ec2
 
-Example repo that serves as an example of an app/server Nullstone module that allows SSM access to an EC2 instance.
+This repo is a Nullstone module to launch an EC2 Instance.
 
-This creates the following:
-- EC2 Instance
-  - inbound public access disabled
-  - outbound access disabled
-- IAM Instance Profile attached to EC2 Instance with SSM support allowed
-- `adminer` IAM User that allows SSM session privilege on the EC2 instance
+The created EC2 instance is accessible via `nullstone exec`.
+The EC2 instance is created in a private subnet and is not available publicly.
+
+## AMI Selection
+
+This module selects the latest official Amazon Linux 2 Image.
+If you wish to use a different AMI, make sure to have the SSM Agent installed.
+Nullstone will run `systemctl` commands against `amazon-ssm-agent` on boot to configure `nullstone exec`.
+
+## Capabilities support
+
+This module offers the following capability support at this time.
+
+#### Supported
+- `app_metadata.role_name` - Role Name attached to the EC2 instance. Accessible via EC2 Instance Metadata endpoint.
+- `app_metadata.security_group_name` - Security Group attached to the EC2 instance.
+- `outputs.public_urls`
+- `outputs.private_urls`
+ 
+#### Development In Progress
+- `outputs.env`
+- `outputs.secrets`
+- `outputs.load_balancers`
+- `outputs.mount_points`
