@@ -2,10 +2,12 @@ org_name: nullstone
 name: aws-ec2
 friendly_name: EC2 App Server
 description: Creates an EC2 Instance that is managed as a Nullstone app
-category: app/server
-type: server/ec2
-appCategories: []
-layer: service
-is_public: true
+category: app
+subcategory: server
 provider_types:
     - aws
+platform: ec2
+subplatform: ""
+type: server/ec2
+appCategories: []
+is_public: true
