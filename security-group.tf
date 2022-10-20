@@ -5,7 +5,7 @@ resource "aws_security_group" "this" {
 }
 
 // See https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-prerequisites.html
-// In order for SSM to work properly, HTTPS (443) oubound must be allowed for
+// In order for SSM to work properly, HTTPS (443) outbound must be allowed for
 //   - ec2messages.<region>.amazonaws.com
 //   - ssm.<region>.amazonaws.com
 //   - ssmmessages.<region>.amazonaws.com
