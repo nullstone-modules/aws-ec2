@@ -6,7 +6,7 @@ By default, this module will choose the latest official Amazon Linux 2 image ava
 Specify `ami` to select an alternative AMI.
 
 This module will run `systemctl` commands against `amazon-ssm-agent`.
-Make sure the selected AMI has Amazon SSM Agent installed to enable `nullstone exec`.
+Make sure the selected AMI has Amazon SSM Agent installed to enable `nullstone ssh`.
 EOF
 }
 
