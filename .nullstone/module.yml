@@ -4,6 +4,7 @@ friendly_name: EC2 App Server
 description: Creates an EC2 Instance that is managed as a Nullstone app
 category: app
 subcategory: server
+app_type: generic
 provider_types:
     - aws
 platform: ec2
