@@ -10,6 +10,17 @@ Make sure the selected AMI has Amazon SSM Agent installed to enable `nullstone s
 EOF
 }
 
+variable "alert_thresholds" {
+  type = object({
+    cpu = optional(number, 90)
+  })
+  default     = {}
+  description = <<EOF
+Thresholds for CloudWatch alarms on the EC2 instance. Only active when a notification connection is provided.
+- cpu: Average CPU utilization percentage over 15 minutes to trigger the alarm (default: 90%)
+EOF
+}
+
 variable "instance_type" {
   type        = string
   default     = "t3.nano"
