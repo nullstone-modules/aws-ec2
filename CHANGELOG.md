@@ -1,4 +1,7 @@
-# 0.4.0 (Aug 31, 2026)
+# 0.4.1 (Sep 03, 2026)
+* Fixed lock file.
+
+# 0.4.0 (Sep 03, 2026)
 * Switched to OpenTofu.
 * Added optional `notification` connection to enable critical monitoring.
 * Added CPU utilization alarm configured via `var.alert_thresholds`.
